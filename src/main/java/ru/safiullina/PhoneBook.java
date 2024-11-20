@@ -1,8 +1,7 @@
 package ru.safiullina;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class PhoneBook {
 
@@ -27,6 +26,9 @@ public class PhoneBook {
     }
 
     public List<String> printAllNames() {
-        return null;
+        return phoneBook.keySet()
+                .stream()
+                .sorted()
+                .collect(Collectors.toList());
     }
 }
