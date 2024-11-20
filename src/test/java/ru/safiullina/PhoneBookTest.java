@@ -12,19 +12,25 @@ class PhoneBookTest {
     @Test
     public void testAdd() {
         // Создадим набор тестовых данных
-        Map<String, String> testData= new HashMap<>();
+        Map<String, String> testData = new HashMap<>();
         testData.put("Adam Yang", "1234567");
         testData.put("Zombie Rob", "198765");
         int trueResult = testData.size();
 
         // Создадим объект класса
-        int result = 0;
         PhoneBook phoneBook = new PhoneBook();
-        for(Map.Entry<String, String> entity : testData.entrySet()){
+        int result = 0;
+
+        // Добавляем тестовые данные
+        for (Map.Entry<String, String> entity : testData.entrySet()) {
             result = phoneBook.add(entity.getKey(), entity.getValue());
         }
 
-        assertTrue(result == trueResult, "Неверное количество записей, получено " + result + ", должно быть " + trueResult);
+        // Добавим одинаковое имя
+        phoneBook.add(testData.keySet().iterator().next(), testData.values().iterator().next());
+
+        assertEquals(result, trueResult,
+                "Неверное количество записей, получено " + result + ", должно быть " + trueResult);
 
     }
 
