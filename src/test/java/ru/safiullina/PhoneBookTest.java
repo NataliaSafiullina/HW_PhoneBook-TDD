@@ -58,18 +58,18 @@ class PhoneBookTest {
         }
     }
 
-//    @Test
-//    public void testFindByName(){
-//        // Запишем данные
-//        addData();
-//
-//        // Проверим что вернёт метод
-//        for (Map.Entry<String, String> entry : testData.entrySet()) {
-//            assertEquals(entry.getValue(),
-//                    phoneBook.findByNumber(entry.getKey()),
-//                    "Не получили номер телефона по имени " + entry.getKey());
-//        }
-//    }
+    @Test
+    public void testFindByName(){
+        // Запишем данные
+        addData();
+
+        // Проверим что вернёт метод
+        for (Map.Entry<String, String> entry : testData.entrySet()) {
+            assertEquals(entry.getValue(),
+                    phoneBook.findByName(entry.getKey()),
+                    "Не получили номер телефона по имени " + entry.getKey());
+        }
+    }
 
 
     public void addData() {
