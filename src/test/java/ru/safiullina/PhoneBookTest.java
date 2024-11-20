@@ -1,24 +1,43 @@
 package ru.safiullina;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PhoneBookTest {
 
-    @Test
-    public void testAdd() {
-        // Создадим набор тестовых данных
-        Map<String, String> testData = new HashMap<>();
+    // Создадим набор тестовых данных
+    public static Map<String, String> testData = new HashMap<>();
+
+    // Создадим объект класса
+    public PhoneBook phoneBook = new PhoneBook();
+
+    // Создадим поток аргументов
+    public static Stream<Arguments> args() {
+        return Stream.of(
+                Arguments.of("Adam Yang", "1234567"),
+                Arguments.of("Zombie Rob", "198765")
+        );
+    }
+
+    @BeforeAll
+    static void fillMap(){
         testData.put("Adam Yang", "1234567");
         testData.put("Zombie Rob", "198765");
-        int trueResult = testData.size();
+    }
 
-        // Создадим объект класса
-        PhoneBook phoneBook = new PhoneBook();
+    @Test
+    public void testAdd() {
+
+        int trueResult = testData.size();
         int result = 0;
 
         // Добавляем тестовые данные
@@ -33,5 +52,21 @@ class PhoneBookTest {
                 "Неверное количество записей, получено " + result + ", должно быть " + trueResult);
 
     }
+
+    @Test
+    public void testFindByNumber(){
+
+        // Запишем данные
+        for (Map.Entry<String, String> entity : testData.entrySet()) {
+            phoneBook.add(entity.getKey(), entity.getValue());
+        }
+
+        // Проверим что вернёт метод
+        for (Map.Entry<String, String> entity : testData.entrySet()) {
+            assertEquals(phoneBook.findByNumber(entity.getValue()), entity.getKey(),
+                    "Не получили имя по номеру телефону");
+        }
+    }
+
 
 }

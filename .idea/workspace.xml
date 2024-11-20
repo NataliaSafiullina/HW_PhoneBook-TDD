@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2ab1e09f-7853-4c99-93d3-7fe09b4e19e7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/safiullina/PhoneBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/safiullina/PhoneBook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/safiullina/PhoneBookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/safiullina/PhoneBookTest.java" afterDir="false" />
     </list>
@@ -39,7 +40,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.PhoneBookTest.executor": "Run",
     "JUnit.PhoneBookTest.testAdd.executor": "Run",
+    "JUnit.PhoneBookTest.testFindByNumber.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -56,7 +59,22 @@
       <recent name="ru.safiullina" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.PhoneBookTest.testFindByNumber">
+    <configuration name="PhoneBookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW_PhoneBook-TDD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.safiullina.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.safiullina" />
+      <option name="MAIN_CLASS_NAME" value="ru.safiullina.PhoneBookTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PhoneBookTest.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HW_PhoneBook-TDD" />
       <extension name="coverage">
@@ -73,8 +91,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PhoneBookTest.testFindByNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW_PhoneBook-TDD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.safiullina.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.safiullina" />
+      <option name="MAIN_CLASS_NAME" value="ru.safiullina.PhoneBookTest" />
+      <option name="METHOD_NAME" value="testFindByNumber" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PhoneBookTest.testFindByNumber" />
+        <item itemvalue="JUnit.PhoneBookTest" />
         <item itemvalue="JUnit.PhoneBookTest.testAdd" />
       </list>
     </recent_temporary>
