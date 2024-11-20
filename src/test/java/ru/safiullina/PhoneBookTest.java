@@ -16,7 +16,7 @@ class PhoneBookTest {
     public PhoneBook phoneBook = new PhoneBook();
 
     @BeforeAll
-    static void fillMap(){
+    static void fillMap() {
         testData.put("Zombie Rob", "1234567");
         testData.put("Adam Yang", "198765");
     }
@@ -41,7 +41,7 @@ class PhoneBookTest {
     }
 
     @Test
-    public void testFindByNumber(){
+    public void testFindByNumber() {
         // Запишем данные
         addData();
 
@@ -54,7 +54,7 @@ class PhoneBookTest {
     }
 
     @Test
-    public void testFindByName(){
+    public void testFindByName() {
         // Запишем данные
         addData();
 
@@ -68,7 +68,7 @@ class PhoneBookTest {
 
     @Test
     public void testPrintAllNames() {
-
+        // Запишем данные
         addData();
 
         // Сортируем наши данные
