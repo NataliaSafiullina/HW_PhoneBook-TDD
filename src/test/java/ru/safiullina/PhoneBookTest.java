@@ -20,14 +20,6 @@ class PhoneBookTest {
     // Создадим объект класса
     public PhoneBook phoneBook = new PhoneBook();
 
-    // Создадим поток аргументов
-    public static Stream<Arguments> args() {
-        return Stream.of(
-                Arguments.of("Adam Yang", "1234567"),
-                Arguments.of("Zombie Rob", "198765")
-        );
-    }
-
     @BeforeAll
     static void fillMap(){
         testData.put("Adam Yang", "1234567");
@@ -48,25 +40,41 @@ class PhoneBookTest {
         // Добавим одинаковое имя
         phoneBook.add(testData.keySet().iterator().next(), testData.values().iterator().next());
 
-        assertEquals(result, trueResult,
+        assertEquals(trueResult, result,
                 "Неверное количество записей, получено " + result + ", должно быть " + trueResult);
 
     }
 
     @Test
     public void testFindByNumber(){
-
         // Запишем данные
-        for (Map.Entry<String, String> entity : testData.entrySet()) {
-            phoneBook.add(entity.getKey(), entity.getValue());
-        }
+        addData();
 
         // Проверим что вернёт метод
-        for (Map.Entry<String, String> entity : testData.entrySet()) {
-            assertEquals(phoneBook.findByNumber(entity.getValue()), entity.getKey(),
-                    "Не получили имя по номеру телефону");
+        for (Map.Entry<String, String> entry : testData.entrySet()) {
+            assertEquals(entry.getKey(),
+                    phoneBook.findByNumber(entry.getValue()),
+                    "Не получили имя по номеру телефону " + entry.getValue());
         }
     }
 
+//    @Test
+//    public void testFindByName(){
+//        // Запишем данные
+//        addData();
+//
+//        // Проверим что вернёт метод
+//        for (Map.Entry<String, String> entry : testData.entrySet()) {
+//            assertEquals(entry.getValue(),
+//                    phoneBook.findByNumber(entry.getKey()),
+//                    "Не получили номер телефона по имени " + entry.getKey());
+//        }
+//    }
 
+
+    public void addData() {
+        for (Map.Entry<String, String> entry : testData.entrySet()) {
+            phoneBook.add(entry.getKey(), entry.getValue());
+        }
+    }
 }

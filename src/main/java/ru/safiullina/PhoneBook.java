@@ -13,6 +13,15 @@ public class PhoneBook {
     }
 
     public String findByNumber(String phoneNumber) {
+        for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
+            if (entry.getValue().equals(phoneNumber)) {
+                return entry.getKey();
+            }
+        }
         return null;
     }
+
+//    public String findByName(String name) {
+//        return null;
+//    }
 }
