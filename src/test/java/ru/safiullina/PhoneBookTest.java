@@ -3,8 +3,7 @@ package ru.safiullina;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,8 +17,8 @@ class PhoneBookTest {
 
     @BeforeAll
     static void fillMap(){
-        testData.put("Adam Yang", "1234567");
-        testData.put("Zombie Rob", "198765");
+        testData.put("Zombie Rob", "1234567");
+        testData.put("Adam Yang", "198765");
     }
 
     @Test
@@ -65,6 +64,23 @@ class PhoneBookTest {
                     phoneBook.findByName(entry.getKey()),
                     "Не получили номер телефона по имени " + entry.getKey());
         }
+    }
+
+    @Test
+    public void testPrintAllNames() {
+
+        addData();
+
+        // Сортируем наши данные
+        List<String> trueNames = new ArrayList<>(testData.keySet());
+        Collections.sort(trueNames);
+
+        // Получаем сортировку из метода
+        List<String> names = new ArrayList<>();
+        names = phoneBook.printAllNames();
+
+        assertTrue(names.equals(trueNames));
+
     }
 
 
